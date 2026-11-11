@@ -1,0 +1,408 @@
+<title>Rooster Shop</title>
+<meta name="Abs0lut3b31ng:viewport-fit-sides" content="cover">
+<meta name="description" content="Rooster Shop: medicamentos veterinarios, suplementos, alimento, jaulas y accesorios para gallos de pelea. Pide por WhatsApp.">
+<meta property="og:title" content="Rooster Shop">
+<meta property="og:description" content="Accesorios e implementos veterinarios para gallos. Pide por WhatsApp.">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Manrope:wght@400;500;700;800&display=swap">
+<style>
+:root {
+  --night: #070d2b;
+  --navy: #0d1745;
+  --royal: #1a2a8f;
+  --line: #2a3a8c;
+  --ember: #ff6a13;
+  --gold: #ffc43a;
+  --snow: #f4f5ff;
+  --mist: #aeb7e8;
+  --card: #eef0fb;
+  --wa: #25d366;
+  --wa-ink: #06371a;
+  --font-display: "Lilita One", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { overflow-x: clip; }
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--snow);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--night); }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: .01em; line-height: 1.08; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1180px; margin-inline: auto; }
+.eyebrow { font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+
+/* Botones */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 48px; padding: .75rem 1.4rem; border-radius: 999px; font-weight: 800; font-size: 1rem; text-decoration: none; border: 2px solid transparent; cursor: pointer; font-family: inherit; transition: transform .15s ease, box-shadow .15s ease, background .15s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn-wa { background: var(--wa); color: var(--wa-ink); box-shadow: 0 8px 24px -8px rgba(37,211,102,.7); }
+.btn-wa:hover { box-shadow: 0 12px 28px -6px rgba(37,211,102,.85); }
+.btn-ghost { border-color: var(--line); color: var(--snow); background: transparent; }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+.btn svg { width: 20px; height: 20px; flex: none; }
+
+/* Encabezado */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px)); background: rgba(7,13,43,.88); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(42,58,140,.6); }
+.top .wrap { display: flex; align-items: center; gap: 1.5rem; min-height: 68px; }
+.brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; font-family: var(--font-display); font-size: 1.55rem; line-height: 1; }
+.brand img { width: 44px; height: 44px; border-radius: 50%; }
+.brand span b { color: var(--ember); font-weight: 400; }
+.top nav { margin-left: auto; display: flex; gap: 1.6rem; }
+.top nav a { text-decoration: none; font-weight: 700; font-size: .95rem; color: var(--mist); }
+.top nav a:hover { color: var(--gold); }
+.top .btn { min-height: 42px; padding: .5rem 1.1rem; font-size: .92rem; }
+
+/* Hero */
+.hero { padding-block: clamp(2.5rem, 6vw, 5rem) clamp(2rem, 4vw, 3.5rem); }
+.hero > .wrap:first-child { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(1.5rem, 4vw, 4rem); align-items: center; }
+.hero h1 { font-size: clamp(2.6rem, 6.4vw, 5rem); margin-block: .9rem 1.1rem; }
+.hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--ember), var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero p.lead { font-size: 1.15rem; color: var(--mist); max-width: 34rem; }
+.cta-row { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+.sign { position: relative; min-width: 0; }
+.sign::before { content: ""; position: absolute; inset: -8% -6%; background: radial-gradient(closest-side, rgba(255,106,19,.35), transparent 70%); z-index: 0; }
+.sign img { position: relative; z-index: 1; display: block; width: 100%; border-radius: 22px; border: 1px solid var(--line); box-shadow: 0 30px 80px -30px rgba(0,0,0,.9), 0 0 60px -10px rgba(26,42,143,.8); }
+
+.strip { display: flex; flex-wrap: wrap; gap: .6rem 2rem; padding-block: 1.1rem; margin-top: 2rem; border-block: 1px solid var(--line); color: var(--mist); font-weight: 700; font-size: .95rem; }
+.strip span { display: inline-flex; align-items: center; gap: .55rem; }
+.strip span::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ember); }
+
+/* Catálogo */
+section { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+.sec-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1.2rem; margin-bottom: 1.8rem; }
+.sec-head h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); margin-top: .4rem; }
+.sec-head p { color: var(--mist); max-width: 30rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.8rem; }
+.chip { font-family: inherit; font-weight: 800; font-size: .9rem; padding: .55rem 1.05rem; border-radius: 999px; border: 1.5px solid var(--line); background: transparent; color: var(--mist); cursor: pointer; min-height: 40px; }
+.chip:hover { color: var(--snow); border-color: var(--mist); }
+.chip[aria-pressed="true"] { background: var(--gold); color: #2a1a00; border-color: var(--gold); }
+.chip small { opacity: .7; font-weight: 700; margin-left: .25rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.25rem; }
+.card { display: flex; flex-direction: column; min-width: 0; background: var(--navy); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.card:hover { transform: translateY(-4px); border-color: var(--ember); box-shadow: 0 18px 40px -20px rgba(255,106,19,.55); }
+.card .ph { position: relative; display: block; padding: 0; border: 0; background: var(--card); aspect-ratio: 4 / 5; cursor: zoom-in; width: 100%; }
+.card .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card .ph img.contain { object-fit: contain; }
+.card .tag { position: absolute; left: 10px; top: 10px; background: rgba(7,13,43,.85); color: var(--gold); font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: .3rem .6rem; border-radius: 999px; }
+.card .body { display: flex; flex-direction: column; gap: .5rem; padding: 1rem 1.1rem 1.15rem; flex: 1; }
+.card h3 { font-size: 1.25rem; }
+.card p { color: var(--mist); font-size: .92rem; flex: 1; }
+.card .btn { min-height: 44px; padding: .55rem 1rem; font-size: .92rem; margin-top: .4rem; }
+.empty { color: var(--mist); padding: 2rem 0; }
+
+/* Jaulas */
+.cages { background: linear-gradient(135deg, var(--royal), var(--navy) 70%); border: 1px solid var(--line); border-radius: 28px; padding: clamp(1.6rem, 4vw, 3.2rem); display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: center; position: relative; overflow: hidden; }
+.cages::after { content: ""; position: absolute; right: -60px; top: -60px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,196,58,.28), transparent); }
+.cages h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); margin-block: .5rem 1rem; }
+.cages p { color: #cfd5f5; max-width: 34rem; }
+.cages ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .8rem; position: relative; z-index: 1; min-width: 0; }
+.cages li { background: rgba(7,13,43,.55); border: 1px solid var(--line); border-radius: 14px; padding: .9rem 1.1rem; font-weight: 700; }
+.cages li span { display: block; font-weight: 500; color: var(--mist); font-size: .9rem; }
+
+/* Por qué */
+.why { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.25rem; }
+.why > div { padding: 1.4rem 0 0; border-top: 3px solid var(--ember); min-width: 0; }
+.why h3 { font-size: 1.35rem; margin-bottom: .5rem; }
+.why p { color: var(--mist); font-size: .95rem; }
+
+/* Contacto */
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+.contact h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); margin-block: .5rem 1rem; }
+.contact .lead { color: var(--mist); max-width: 30rem; }
+.num { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; margin-top: 1.5rem; font-family: var(--font-display); font-size: clamp(1.6rem, 4vw, 2.3rem); color: var(--gold); }
+.copy { font-family: var(--font-body); font-size: .85rem; font-weight: 800; background: transparent; color: var(--snow); border: 1.5px solid var(--line); border-radius: 999px; padding: .4rem .9rem; cursor: pointer; min-height: 36px; }
+.copy:hover { border-color: var(--gold); color: var(--gold); }
+.social { margin-top: 1.4rem; display: flex; flex-wrap: wrap; gap: .8rem; }
+form { background: var(--navy); border: 1px solid var(--line); border-radius: 22px; padding: clamp(1.2rem, 3vw, 2rem); display: grid; gap: 1rem; min-width: 0; }
+label { display: grid; gap: .4rem; font-weight: 800; font-size: .88rem; }
+input, select, textarea { font: inherit; font-weight: 500; color: var(--snow); background: var(--night); border: 1.5px solid var(--line); border-radius: 12px; padding: .75rem .9rem; width: 100%; min-width: 0; }
+input:focus-visible, select:focus-visible, textarea:focus-visible { border-color: var(--gold); outline: none; box-shadow: 0 0 0 3px rgba(255,196,58,.3); }
+textarea { resize: vertical; min-height: 96px; }
+.hint { font-size: .8rem; color: var(--mist); }
+
+footer { border-top: 1px solid var(--line); padding-block: 2rem 6rem; color: var(--mist); font-size: .88rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between; }
+footer .brand { font-size: 1.3rem; color: var(--snow); }
+footer .brand img { width: 36px; height: 36px; }
+footer p { max-width: 42rem; }
+
+/* Botón flotante */
+.fab { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 55; width: 60px; height: 60px; border-radius: 50%; background: var(--wa); color: var(--wa-ink); display: grid; place-items: center; box-shadow: 0 10px 30px -6px rgba(37,211,102,.8); text-decoration: none; }
+.fab svg { width: 32px; height: 32px; }
+.fab::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--wa); animation: ping 2.4s ease-out infinite; }
+@keyframes ping { from { transform: scale(1); opacity: .8; } to { transform: scale(1.6); opacity: 0; } }
+
+/* Visor de imagen */
+.lb[hidden] { display: none; }
+.lb { position: fixed; inset: 0; z-index: 80; background: rgba(4,7,24,.94); display: grid; place-items: center; padding: 1rem; }
+.lb figure { margin: 0; display: grid; gap: 1rem; max-width: min(92vw, 720px); justify-items: center; }
+.lb img { max-width: 100%; max-height: 72vh; border-radius: 14px; background: var(--card); }
+.lb figcaption { text-align: center; font-weight: 700; }
+.lb .x { position: absolute; right: 16px; top: calc(16px + env(safe-area-inset-top, 0px)); width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--navy); color: var(--snow); font-size: 1.4rem; cursor: pointer; }
+
+@media (max-width: 860px) {
+  .hero > .wrap:first-child, .cages, .contact { grid-template-columns: 1fr; }
+  .top nav { display: none; }
+  .top .btn { margin-left: auto; }
+}
+@media (max-width: 520px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
+  .card h3 { font-size: 1.05rem; }
+  .card .body { padding: .8rem .8rem 1rem; }
+  .card p { font-size: .82rem; }
+  .card .btn { font-size: .82rem; padding: .5rem .6rem; }
+  .brand span { font-size: 1.3rem; }
+  .top .btn span.long { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fab::after { animation: none; }
+  .btn, .card { transition: none; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Rooster Shop, inicio"><img src="img/logo.png" alt="" width="44" height="44"><span>Rooster <b>Shop</b></span></a>
+    <nav aria-label="Principal">
+      <a href="#catalogo">Productos</a>
+      <a href="#jaulas">Jaulas</a>
+      <a href="#nosotros">Por qué elegirnos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn btn-wa" data-wa="Hola Rooster Shop, quiero información de sus productos." href="#contacto" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg><span class="long">Pedir por&nbsp;</span>WhatsApp</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Accesorios e implementos veterinarios para gallos</p>
+        <h1>Todo lo que tu gallo necesita, <em>en un solo lugar.</em></h1>
+        <p class="lead">Medicamentos veterinarios, pastas y suplementos, alimento de buena calidad, jaulas para su cuidado y el equipo de trabajo que usas todos los días. Escríbenos y te respondemos directo por WhatsApp.</p>
+        <div class="cta-row">
+          <a class="btn btn-wa" data-wa="Hola Rooster Shop, quiero información de sus productos." href="#contacto" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg>Pedir por WhatsApp</a>
+          <a class="btn btn-ghost" href="#catalogo">Ver productos</a>
+        </div>
+      </div>
+      <div class="sign"><img src="img/hero.jpg" alt="Letrero de neón de Rooster Shop con la cabeza de un gallo" width="1081" height="490"></div>
+    </div>
+    <div class="wrap strip" aria-label="Lo que ofrecemos">
+      <span>Medicamentos veterinarios</span><span>Pastas y suplementos</span><span>Alimento de calidad</span><span>Jaulas para su cuidado</span><span>Accesorios y herramientas</span>
+    </div>
+  </div>
+
+  <section id="catalogo">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Catálogo</p><h2>Nuestros productos</h2></div>
+        <p>Toca una foto para verla más grande. Para precio, disponibilidad y presentaciones, escríbenos por WhatsApp con el producto ya elegido.</p>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Filtrar por categoría"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="jaulas" style="padding-top:0">
+    <div class="wrap">
+      <div class="cages">
+        <div style="position:relative;z-index:1;min-width:0">
+          <p class="eyebrow">Jaulas</p>
+          <h2>Jaulas para el cuidado de tus gallos</h2>
+          <p>Tenemos jaulas para mantenerlos cómodos, ventilados y seguros. Cuéntanos cuántos gallos tienes y cuánto espacio hay disponible, y te mostramos los modelos que tenemos.</p>
+          <div class="cta-row"><a class="btn btn-wa" data-wa="Hola Rooster Shop, me interesan las jaulas. ¿Qué modelos y medidas tienen?" href="#contacto" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg>Preguntar por jaulas</a></div>
+        </div>
+        <ul>
+          <li>Fotos y medidas<span>Te enviamos fotos de los modelos disponibles.</span></li>
+          <li>Precio directo<span>Cotización por WhatsApp, sin vueltas.</span></li>
+          <li>Todo en la misma compra<span>Agrega alimento y medicamento a tu pedido.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="nosotros" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><div><p class="eyebrow">Por qué Rooster Shop</p><h2>Una tienda hecha para criadores</h2></div></div>
+      <div class="why">
+        <div><h3>Productos veterinarios</h3><p>Anticoccidiales, antibiótico para vías respiratorias, pastas orales y suplementos de marcas conocidas.</p></div>
+        <div><h3>Marca propia</h3><p>Nuestro aceite vegetal comestible Rooster Shop viene en presentación grande y chica.</p></div>
+        <div><h3>Hecho a tu medida</h3><p>Placas y bolsas personalizadas con el nombre de tu criadero o partido.</p></div>
+        <div><h3>Atención directa</h3><p>Hablas con la tienda por WhatsApp: preguntas, pides fotos y confirmas tu pedido.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" style="padding-top:0">
+    <div class="wrap contact">
+      <div>
+        <p class="eyebrow">Contacto</p>
+        <h2>Haz tu pedido hoy</h2>
+        <p class="lead">Escríbenos por WhatsApp. Dinos qué producto buscas y te respondemos con precio y disponibilidad.</p>
+        <div class="num"><span id="phone">+52 445 106 9718</span><button class="copy" type="button" id="copy">Copiar número</button></div>
+        <div class="social">
+          <a class="btn btn-wa" data-wa="Hola Rooster Shop, quiero información de sus productos." href="#contacto" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg>Abrir WhatsApp</a>
+          <a class="btn btn-ghost" href="https://www.facebook.com/search/top?q=Rooster%20shop" target="_blank" rel="noopener">Facebook: Rooster shop</a>
+        </div>
+      </div>
+      <form id="form" onsubmit="return false">
+        <label for="f-name">Tu nombre<input id="f-name" type="text" autocomplete="name" placeholder="Ej. Miguel"></label>
+        <label for="f-prod">¿Qué te interesa?
+          <select id="f-prod">
+            <option>Medicamentos veterinarios</option>
+            <option>Pastas y suplementos</option>
+            <option>Alimento</option>
+            <option>Jaulas</option>
+            <option>Accesorios y herramientas</option>
+            <option>Productos personalizados</option>
+            <option>Otro</option>
+          </select>
+        </label>
+        <label for="f-msg">Mensaje<textarea id="f-msg" placeholder="Cuéntanos qué necesitas y cuántas piezas."></textarea></label>
+        <a class="btn btn-wa" id="send" href="#contacto" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg>Enviar por WhatsApp</a>
+        <p class="hint">Se abre WhatsApp con tu mensaje listo para enviar.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#inicio"><img src="img/logo.png" alt="" width="36" height="36"><span>Rooster <b>Shop</b></span></a>
+    <p>Productos de uso veterinario. Consulta a tu médico veterinario antes de administrar cualquier medicamento o suplemento. Precios y existencias sujetos a cambio.</p>
+  </div>
+</footer>
+
+<a class="fab" data-wa="Hola Rooster Shop, quiero información de sus productos." href="#contacto" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg></a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-wa" viewBox="0 0 32 32"><path d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.55 4.18 1.6 6L4 28l7.1-1.86a12 12 0 0 0 4.94 1.06h.01C22.68 27.2 28 21.8 28 15.16 28 8.4 22.68 3 16.04 3Zm0 21.9h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-4.2 1.1 1.12-4.1-.24-.38a9.9 9.9 0 0 1-1.5-5.28c0-5.46 4.45-9.9 9.92-9.9 5.46 0 9.9 4.44 9.9 9.9 0 5.46-4.44 9.9-9.9 9.9h.3Zm5.43-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.5.71.3 1.26.49 1.7.63.71.23 1.36.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35Z"/></symbol>
+</defs></svg>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Foto del producto">
+  <button class="x" id="lbx" type="button" aria-label="Cerrar">×</button>
+  <figure><img id="lbi" alt=""><figcaption id="lbc"></figcaption><a class="btn btn-wa" id="lbw" href="#contacto" target="_blank" rel="noopener">Preguntar por este producto</a></figure>
+</div>
+
+<script>
+(function () {
+  var PHONE = "524451069718"; // WhatsApp (lada 52 de México)
+  var CATS = ["Medicamentos", "Suplementos y alimento", "Accesorios", "Herramientas", "Personalizados"];
+  // Para editar: cambia nombre, descripción o categoría. "contain" muestra la foto completa sin recortar.
+  var P = [
+    { img: "p06", cat: 0, name: "Tilva Master (tilvalosina)", desc: "Sobres de 25 g para el cuidado de las vías respiratorias. “Pulmones sanos”." },
+    { img: "p27", cat: 0, name: "Coci Pro solución oral", desc: "Solución oral para coccidiosis, frasco de 500 ml y presentación chica." },
+    { img: "p28", cat: 0, name: "Coccidia Tisulfan (Maver)", desc: "Soluble en agua, en presentación grande y chica." },
+    { img: "p29", cat: 0, name: "Aceite vegetal Rooster Shop", desc: "Aceite vegetal comestible de nuestra marca, en presentación de 1 litro y chica." },
+    { img: "p14", cat: 1, name: "Pre-Race Pasta", desc: "Pasta oral Pre-Race en caja, con jeringa dosificadora." },
+    { img: "p18", cat: 1, name: "Super Energize Pasta", desc: "Pasta oral de energía en caja, con jeringa dosificadora." },
+    { img: "p13", cat: 1, name: "Jeringas de pasta oral", desc: "Pastas orales en jeringa dosificadora, listas para aplicar.", pos: "50% 60%" },
+    { img: "p01", cat: 1, name: "Larvas secas", desc: "Alimento seco rico en proteína, en bote. Pregunta por tamaños." },
+    { img: "p02", cat: 2, name: "Protectores con cordón", desc: "Piezas plásticas en verde, amarillo y rojo, empacadas por separado.", fit: "contain" },
+    { img: "p03", cat: 2, name: "Piezas plásticas de colores", desc: "Amarillo, naranja, negro y rosa. Surtido de colores." },
+    { img: "p15", cat: 2, name: "Accesorios plásticos rojo y verde", desc: "Surtido por piezas en colores brillantes.", fit: "contain" },
+    { img: "p04", cat: 2, name: "Fundas de cuero (paquete de 16)", desc: "Paquete surtido en rojo, negro, beige y café, con cierre de botón." },
+    { img: "p20", cat: 2, name: "Fundas de cuero de colores", desc: "Con liga y botón, en azul, verde, rojo, negro y blanco." },
+    { img: "p08", cat: 2, name: "Protectores decorados", desc: "Surtido de diseños con detalles dorados, uno por bolsa." },
+    { img: "p11", cat: 2, name: "Amarres de cuero con cuerda", desc: "Cuerda azul o verde con extremos de cuero y remaches." },
+    { img: "p17", cat: 2, name: "Protectores de cuero con correas", desc: "En negro y crema, con correas ajustables.", fit: "contain" },
+    { img: "p05", cat: 2, name: "Patas de práctica", desc: "Modelo en dos colores, rojo y vino.", fit: "contain" },
+    { img: "p09", cat: 2, name: "Huevos artificiales", desc: "Bolsa en malla con huevos blancos.", pos: "50% 70%" },
+    { img: "p07", cat: 2, name: "Malla roja", desc: "Bolsa de malla roja para uso en el criadero.", pos: "50% 75%" },
+    { img: "p10", cat: 2, name: "Pulseras de papel", desc: "Paquetes de pulseras en amarillo y rojo para eventos." },
+    { img: "p21", cat: 2, name: "Tiras blanco y negro", desc: "Juego de tres piezas bicolor." },
+    { img: "p23", cat: 3, name: "Hilo encerado americano", desc: "Carrete de 250 yardas en varios colores.", fit: "contain" },
+    { img: "p12", cat: 3, name: "Pinza de acero inoxidable", desc: "Acero inoxidable con el gallo grabado y número de lote." },
+    { img: "p16", cat: 3, name: "Pinza de precisión", desc: "Pinza metálica con detalles dorados." },
+    { img: "p19", cat: 3, name: "Herramienta negra (3 piezas)", desc: "Juego de tres piezas en color negro." },
+    { img: "p24", cat: 3, name: "Pinzas doradas", desc: "Pinzas metálicas empacadas en bolsa individual." },
+    { img: "p25", cat: 3, name: "Pinzas de mango verde", desc: "Mango forrado, cómodo para trabajar largo rato." },
+    { img: "p22", cat: 4, name: "Placas con nombre de criadero", desc: "Placas metálicas grabadas con el nombre de tu criadero." },
+    { img: "p26", cat: 4, name: "Bolsas personalizadas", desc: "Fundas de diferentes colores, con tu nombre de partido y gallo impresos." }
+  ];
+
+  function wa(text) { return "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(text); }
+  document.querySelectorAll("[data-wa]").forEach(function (a) { a.href = wa(a.getAttribute("data-wa")); });
+
+  var grid = document.getElementById("grid"), chips = document.getElementById("chips"), active = -1;
+
+  function renderChips() {
+    var all = [{ n: "Todos", i: -1, c: P.length }].concat(CATS.map(function (n, i) {
+      return { n: n, i: i, c: P.filter(function (p) { return p.cat === i; }).length };
+    }));
+    chips.innerHTML = "";
+    all.forEach(function (c) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "chip"; b.setAttribute("aria-pressed", String(c.i === active));
+      b.innerHTML = c.n + "<small>" + c.c + "</small>";
+      b.onclick = function () { active = c.i; renderChips(); renderGrid(); };
+      chips.appendChild(b);
+    });
+  }
+
+  function msg(p) { return "Hola Rooster Shop, me interesa: " + p.name + ". ¿Me das precio y disponibilidad?"; }
+
+  function renderGrid() {
+    var list = P.filter(function (p) { return active < 0 || p.cat === active; });
+    grid.innerHTML = "";
+    if (!list.length) { grid.innerHTML = '<p class="empty">No hay productos en esta categoría.</p>'; return; }
+    list.forEach(function (p) {
+      var el = document.createElement("article");
+      el.className = "card";
+      el.innerHTML =
+        '<button class="ph" type="button" aria-label="Ver foto de ' + p.name + '"><img class="' + (p.fit || "") + '" src="img/' + p.img + '.jpg" alt="' + p.name + '" loading="lazy"' + (p.pos ? ' style="object-position:' + p.pos + '"' : "") + '><span class="tag">' + CATS[p.cat] + '</span></button>' +
+        '<div class="body"><h3>' + p.name + '</h3><p>' + p.desc + '</p>' +
+        '<a class="btn btn-wa" href="' + wa(msg(p)) + '" target="_blank" rel="noopener">Preguntar precio</a></div>';
+      el.querySelector(".ph").onclick = function () { openLb(p); };
+      grid.appendChild(el);
+    });
+  }
+
+  var lb = document.getElementById("lb");
+  function openLb(p) {
+    document.getElementById("lbi").src = "img/" + p.img + ".jpg";
+    document.getElementById("lbi").alt = p.name;
+    document.getElementById("lbc").textContent = p.name;
+    document.getElementById("lbw").href = wa(msg(p));
+    lb.hidden = false; document.getElementById("lbx").focus();
+  }
+  function closeLb() { lb.hidden = true; }
+  document.getElementById("lbx").onclick = closeLb;
+  lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeLb(); });
+
+  // Formulario que arma el mensaje de WhatsApp
+  var fn = document.getElementById("f-name"), fp = document.getElementById("f-prod"), fm = document.getElementById("f-msg"), send = document.getElementById("send");
+  function upd() {
+    var t = "Hola Rooster Shop" + (fn.value.trim() ? ", soy " + fn.value.trim() : "") + ". Me interesa: " + fp.value + "." + (fm.value.trim() ? " " + fm.value.trim() : "");
+    send.href = wa(t);
+  }
+  [fn, fp, fm].forEach(function (e) { e.addEventListener("input", upd); });
+  upd();
+
+  // Copiar número
+  var cp = document.getElementById("copy");
+  cp.onclick = function () {
+    var done = function (ok) { cp.textContent = ok ? "¡Copiado!" : "Selecciona el número"; setTimeout(function () { cp.textContent = "Copiar número"; }, 1800); };
+    try { navigator.clipboard.writeText("+524451069718").then(function () { done(true); }, function () { sel(); done(false); }); }
+    catch (e) { sel(); done(false); }
+  };
+  function sel() { var r = document.createRange(); r.selectNodeContents(document.getElementById("phone")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+
+  renderChips(); renderGrid();
+})();
+</script>
